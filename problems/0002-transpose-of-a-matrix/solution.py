@@ -1,15 +1,12 @@
-import torch
-
-def transpose_matrix(a) -> torch.Tensor:
+def transpose_matrix(a: list[list[int|float]]) -> list[list[int|float]]:
     """
-    Transpose a 2D matrix using PyTorch.
+    Transpose a 2D matrix by swapping rows and columns.
     
     Args:
-        a: A 2D matrix (can be list, numpy array, or torch.Tensor)
+        a: A 2D matrix of shape (m, n)
     
     Returns:
-        A transposed torch.Tensor
+        The transposed matrix of shape (n, m)
     """
-    a_t = torch.as_tensor(a)
-    
-    return a_t.T
+
+    return [[a[i][j] for i in range(len(a))] for j in range(len(a[0]))]
