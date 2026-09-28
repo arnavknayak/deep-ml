@@ -14,19 +14,23 @@ def compute_norm(arr: np.ndarray, norm_type: str) -> float:
     Returns:
         The computed norm as a float
     """
-    arr = np.asarray(arr, dtype=float)
     
-    if norm_type == 'l1':
-        return float(np.sum(np.abs(arr)))
-    elif norm_type == 'l2':
-        return float(np.sqrt(np.sum(arr ** 2)))
-    elif norm_type == 'linf':
-        return float(np.max(np.abs(arr)))
-    elif norm_type == 'frobenius':
+    arr = arr.float()
+
+    if norm_type == "l1":
+        return torch.sum(torch.abs(arr)).item()
+
+    elif norm_type == "l2":
+        return torch.sqrt(torch.sum(arr ** 2)).item()
+        
+    elif norm_type == "linf":
+        return torch.max(torch.abs(arr)).item()
+
+    elif norm_type == "frobenius":
         if arr.ndim != 2:
-            raise ValueError(f"Frobenius norm is defined for matrices, got a {arr.ndim}D array")
-        # return float(np.sqrt(np.sum(arr ** 2)))
-        return float(np.linalg.norm(arr, 'fro'))
+            raise ValueError("Frobenius norm requires a 2D tensor")
+        return torch.sqrt(torch.sum(arr ** 2)).item()
+
     else:
         raise ValueError(f"Unknown norm type: {norm_type}")
         
