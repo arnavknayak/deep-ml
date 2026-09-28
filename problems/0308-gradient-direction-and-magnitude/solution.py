@@ -15,9 +15,12 @@ def gradient_direction_magnitude(gradient: list) -> dict:
 	"""
 	
 	gradient = np.array(gradient, dtype=float)
+
 	magnitude = np.sqrt(np.sum(gradient ** 2))
 
 	if magnitude == 0:
-		return {'magnitude': 0.0, 'direction': [0.0] * len(gradient), 'descent_direction': [0.0] * len(gradient)}
+		direction = np.zeros_like(gradient)
+	else:
+		direction = gradient / magnitude
 	
-	return {'magnitude': magnitude, 'direction': gradient / magnitude, 'descent_direction': -1 * (gradient / magnitude)}
+	return {'magnitude': magnitude, 'direction': direction, 'descent_direction': -direction}
