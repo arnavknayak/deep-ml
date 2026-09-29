@@ -19,7 +19,7 @@ def linear_regression_gradient_descent(X: np.ndarray, y: np.ndarray, alpha: floa
 
     for batch in range(iterations):
         y_pred = np.matmul(X, theta)
-        grad = np.matmul(X.T, y_pred - y) / m
+        grad = np.matmul(X.T, y_pred-y) / m
         theta -= alpha * grad
 
     return theta.flatten()
