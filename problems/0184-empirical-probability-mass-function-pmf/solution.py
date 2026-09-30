@@ -1,17 +1,11 @@
-def empirical_pmf(samples):
+import torch
+
+def empirical_pmf(samples: torch.Tensor) -> list:
     """
-    Given an iterable of integer samples, return a list of (value, probability)
+    Given a 1D tensor of integer samples, return a list of (value, probability)
     pairs sorted by value ascending.
     """
-    n = len(samples)
-    pmf = {}
-    for i in samples:
-        if i not in pmf:
-            pmf[i] = 0
-        pmf[i] += 1
-    
-    res = []
-    for k, v in pmf.items():
-        res.append((k, v/n))
+    values, counts = torch.unique(samples, return_counts=True)
+    probabilities = counts.float() / len(samples)
 
-    return res
+    return list(zip(values.tolist(), probabilities.tolist()))
