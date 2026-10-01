@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T06:19:58.276Z",
+  "generated_at": "2026-10-01T06:21:12.295Z",
   "items": {
     "problem:121": {
       "kind": "problem",
@@ -342,6 +342,17 @@
       "path": "math/0012-inverse-and-rank",
       "first_solved_at": "2026-10-01T06:19:57.748Z",
       "last_pushed_at": "2026-10-01T06:19:57.748Z"
+    },
+    "math:13": {
+      "kind": "math",
+      "id": "13",
+      "title": "Solving Linear Systems",
+      "difficulty": "medium",
+      "category": "Linear Algebra",
+      "url": "https://www.deep-ml.com/math-problems/13",
+      "path": "math/0013-solving-linear-systems",
+      "first_solved_at": "2026-10-01T06:21:11.820Z",
+      "last_pushed_at": "2026-10-01T06:21:11.820Z"
     }
   }
 }
